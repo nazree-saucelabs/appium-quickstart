@@ -61,11 +61,10 @@ public class AppiumIosRdcAppTest {
         capabilities.setCapability("automationName", "XCuiTest");
         capabilities.setCapability("app", "storage:filename="+appName); // or "storage:"+appID
         capabilities.setCapability("name", methodName);
-//        capabilities.setCapability("privateDevicesOnly", "true");
-//        capabilities.setCapability("platformVersion", "14.3"); //added
+//        capabilities.setCapability("privateDevicesOnly", "true");//       capabilities.setCapability("platformVersion", "14.3"); //added
 //        capabilities.setCapability("appiumVersion", ""); //added
 //        capabilities.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa");
-//        capabilities.setCapability("noReset", true);
+        capabilities.setCapability("noReset", true);
 //        capabilities.setCapability("cacheId", "1234");
 //        capabilities.setCapability("tags", "sauceDemo1");
 //        capabilities.setCapability("build", "myBuild1");
@@ -98,6 +97,14 @@ public class AppiumIosRdcAppTest {
 
     }
 
+    @Test
+    public void loginToSwagLabsWrongPasswordTest(){
+        System.out.println("Sauce - Start loginToSwagLabsWrongPasswordTest test");
+        login("standard_user", "wrong_password");
+
+        // verification
+        Assert.assertEquals(getLoginErrorMsg(),"Username and password do not match any user in this service.");
+    }
     @Test
     public void loginToSwagLabsLockedUserTest() {
         System.out.println("Sauce - Start loginToSwagLabsLockedUserTest test");
