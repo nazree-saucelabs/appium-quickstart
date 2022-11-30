@@ -54,7 +54,7 @@ public class AppiumIosRdcAppTest {
 //        String appID = "9068cfba-d0cd-4027-99dc-ca70c5bf5278";
         String methodName = method.getName();
         URL url = new URL(SAUCE_REMOTE_URL);
-
+//
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "iPhone 8.*");
         capabilities.setCapability("platformName", "iOS");
